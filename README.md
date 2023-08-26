@@ -13,7 +13,7 @@ See Train_Backbone.py for main SimCLR training run script and process flow.
 ## Training Files (All PyTorch Lightning Implementations)
 
 ### Train_Backbone: Main Contrastive SimCLR Learning training script (For backbone training).
-Extracts images from an unlabeled dataset, augments to create an image pair, and trains ML backbone using SimcLR self-supervised learning. Model architecture is user-defined (High-resolution DenseNet architecture included in repo). 
+Extracts images from an unlabeled dataset, augments to create an image pair, and trains ML backbone using SimCLR self-supervised learning. Model architecture is user-defined (High-resolution DenseNet architecture included in repo). 
 
 ### FineTune_Backbone: Finetuning script for downstream tasks.
 Loads a pretrained model (checkpoint from Train_Backbone) for fine-tuning. Trains an image classifier with initalized backbone weights using labeled training and validation datasets. 
