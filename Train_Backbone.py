@@ -227,8 +227,9 @@ class Augment:
             [T.ToTensor(), T.Normalize(mean=[0.1988, 0.1367, 0.0966], std=[0.1458, 0.1024, 0.0701])])
         # Found mean and std for normalization from averaging 1000 Images mean: tensor([0.1988, 0.1367, 0.0966]) std: tensor([0.1458, 0.1024, 0.0701])
 
+    #Input: A tensor of size batch x image size, which is then transformed w/ mask and stacked back into a batch. Output: Two augmented versions of the input w/ same dimensions.
     def __call__(self, x):
-
+        
         # This code will be applied to each image x. (Creates two augmented versions of x)
         x = [self.to_pil(img) for img in x]
 
