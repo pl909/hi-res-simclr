@@ -214,7 +214,7 @@ class Augment:
             ], p=0.25),
             T.Resize(896),
             T.RandomHorizontalFlip(p=0.5),
-            T.RandomApply([T.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.1, hue=0.05)], p=0.5),
+            T.RandomApply([T.ColorJitter(brightness=0.2, contrast=0.1, saturation=0.1, hue=0.05)], p=0.5),
             T.RandomApply([
                 T.RandomRotation(degrees=15),
                 lambda img: random_center_crop(img, min_scale=0.5, max_scale=0.7, img_size=896),
@@ -270,6 +270,7 @@ def imshow(img):
 
 # Removes Final Dense layer and adds a MLP to project to feature embeddings.
 class AddProjection(nn.Module):
+    # Input: config, which is a class w/ instance vars of embedding size, model input (example: ResNet50), and dimension of MLP (multilayer perceptron
     def __init__(self, config, model=None, mlp_dim=1024):
         super(AddProjection, self).__init__()
 
@@ -353,6 +354,7 @@ class SimCLR_pl(pl.LightningModule):
         return next(self.parameters()).device
 
     # Main training step.
+    # Input type: batch = batchsize x imagedimension1 x imagedimension2 tensor. batch_idx = batch index integer.
     def training_step(self, batch, batch_idx):
 
         # custom drop last
