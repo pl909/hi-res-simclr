@@ -306,6 +306,7 @@ class SimCLR_eval(pl.LightningModule):
 
         return loss
     # Ignore validation step - see test step
+    # Input type: batch x imagedim1 x imagedim2 tensor, with index of the batch.
     def validation_step(self, batch, batch_idx):
         x, y = batch
         x = x.float().cuda()
