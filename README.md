@@ -1,6 +1,7 @@
 # hi-res-simclr
 An implementation of SimCLR semi-supervised learning with high-resolution image inputs - part of my 2023 internship with Digital Diagnostics (w/ permission to publish core files and run scripts).
 
+Supports 448 by 448 and 896 by 896 inputs and high-resolution backbone generation.
 
 See Train_Backbone.py for main SimCLR training run script and process flow.
 
